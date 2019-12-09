@@ -25,6 +25,9 @@
 - name: 添加hosts
   template: src=hosts.j2 dest=/etc/hosts 
 
+- name: 安装ipvs
+  yum: name=ipvsadm  state=present
+
 #- name: 同步系统时间
 #  yum: name=ntpdate state=present
 #- name: 同步系统时间
