@@ -14,6 +14,8 @@ cluster_domain: 'cluster.local'
 # 高可用，如果部署单Master，该项忽略
 vip: '192.168.190.66'
 nic: 'ens32' 
+#单master的config需要这个ip，如果不做config无所谓
+masterip: '192.168.190.101'
 
 # 自签证书可信任IP列表，为方便扩展，可添加多个预留IP
 cert_hosts:
