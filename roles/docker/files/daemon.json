@@ -1,0 +1,4 @@
+{
+    "registry-mirrors": ["http://bc437cce.m.daocloud.io"],
+    "insecure-registries": ["192.168.31.70"]
+}  

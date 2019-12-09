@@ -1,0 +1,37 @@
+# 安装目录 
+software_dir: '/root/binary_pkg'
+k8s_work_dir: '/opt/kubernetes'
+etcd_work_dir: '/opt/etcd'
+tmp_dir: '/tmp/k8s'
+
+# 容器网络
+service_cidr: '10.0.0.0/24'
+cluster_dns: '10.0.0.2'
+pod_cidr: '10.244.0.0/16' # 与CNI插件网络一致
+service_nodeport_range: '30000-32767'
+cluster_domain: 'cluster.local'
+
+# 高可用，如果部署单Master，该项忽略
+vip: '192.168.190.66'
+nic: 'ens32' 
+
+# 自签证书可信任IP列表，为方便扩展，可添加多个预留IP
+cert_hosts:
+  # 包含所有LB、VIP和Master IP
+  k8s:
+    - 192.168.31.61
+    - 192.168.31.62
+    - 192.168.31.63
+    - 192.168.31.71
+    - 192.168.31.72
+    - 192.168.31.73
+    - 192.168.190.101
+    - 192.168.190.102
+    - 192.168.190.136
+    - 192.168.190.129
+    - 192.168.190.66
+  # 包含所有etcd节点IP
+  etcd:
+    - 192.168.190.136
+    - 192.168.190.102
+    - 192.168.190.101
