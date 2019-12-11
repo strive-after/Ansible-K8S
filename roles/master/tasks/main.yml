@@ -28,7 +28,7 @@
     - server-key.pem
 
 - name: 分发etcd证书
-  copy: src=etcd_cert/{{ item }} dest={{ k8s_work_dir }}/ssl/etcd
+  copy: src=etcd_cert/{{ item }} dest={{ etcd_work_dir }}/ssl/etcd
   with_items:
     - ca.pem
     - server.pem
