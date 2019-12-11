@@ -1,4 +1,12 @@
 {
-    "registry-mirrors": ["http://bc437cce.m.daocloud.io"],
-    "insecure-registries": ["192.168.31.70"]
-}  
+"max-concurrent-downloads": 10,
+"log-driver": "json-file",
+"log-opts": {
+"max-size": "100m",
+"max-file": "3"
+},
+"graph": "/app/docker"
+}
+
+ 
+ 

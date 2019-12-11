@@ -1,20 +1,20 @@
 [master]
 # 如果部署单Master，只保留一个Master节点
-192.168.190.101 node_name=k8s-master1
-192.168.190.102 node_name=k8s-master2
+192.168.190.101  node_name=k8s-master1 
+#192.168.190.102 node_name=k8s-master2
 
 [node]
-192.168.190.136 node_name=k8s-node1
+192.168.190.102 node_name=k8s-node1 
 #192.168.31.73 node_name=k8s-node2
 
 [etcd]
-192.168.190.101 etcd_name=etcd-1
-192.168.190.102 etcd_name=etcd-2
-192.168.190.136 etcd_name=etcd-3
+192.168.190.101 etcd_name=etcd-1   
+192.168.190.102 etcd_name=etcd-2 
+#192.168.190.136 etcd_name=etcd-3
 
 [lb]
 # 如果部署单Master，该项忽略
-192.168.190.129 lb_name=lb-master
+#192.168.190.129 lb_name=lb-master
 #192.168.190.136 lb_name=lb-backup
 
 [k8s:children]
@@ -23,7 +23,7 @@ node
 
 #用一个master节点来做部署ui以及ingress然后做容器exec授权避免大面积报错
 [masterbak]
-192.168.190.101 node_name=k8s-master1
+192.168.190.101  node_name=k8s-master1  
 
 [newnode]
 #192.168.31.91 node_name=k8s-node3

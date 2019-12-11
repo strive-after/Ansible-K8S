@@ -34,30 +34,31 @@
     - master
   tags: master
 
-- name: 5.exec进入容器授权
-  gather_facts: false
-  hosts: masterbak
-  roles:
-    - bak
-  tags: bak
-
-- name: 6部署Nginx负载均衡并高可用
+- name: 5部署Nginx负载均衡并高可用
   gather_facts: false
   hosts: lb
   roles:
     - ha
   tags: ha
 
-- name: 7.部署K8S Node
+- name: 6.部署K8S Node
   gather_facts: false
   hosts: k8s 
   roles:
     - node
   tags: node
 
-- name: 8.部署插件
+- name: 7.部署插件
   gather_facts: false
   hosts: masterbak
   roles:
     - addons
   tags: addons
+
+
+- name: 8.制作config
+  gather_facts: false
+  hosts: master
+  roles:
+    - config
+  tags: config

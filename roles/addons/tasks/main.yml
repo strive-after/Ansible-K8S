@@ -44,3 +44,5 @@
 - name: Kubernetes Dashboard登录信息
   debug: var=ui.stdout_lines
 
+
+
