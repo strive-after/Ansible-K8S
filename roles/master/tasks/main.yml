@@ -84,18 +84,17 @@
          echo 'source <(kubectl completion bash)' >> /root/.bashrc && \
          kubectl completion bash > /etc/bash_completion.d/kubectl 
 
-- name: 创建证书存放的位置
-  file: dest=/k8s/ssl  state=directory
-
-- name: 拷贝证书到相对应目录
-  copy: 
-    src: /root/ansible-install-k8s-master/ssl/k8s
-    dest: /k8s/ssl
-- name: 制作config文件
-  ignore_errors: yes
-  shell: kubectl config set-cluster  kubernetes     --kubeconfig=/root/test.conf --embed-certs=true --certificate-authority=/opt/kubernetes/ssl/ca.pem   --server="https://{{ vip }}:6443" && \
-         kubectl config  set-credentials kubernetes-admin      --client-certificate=/k8s/ssl/k8s/admin.pem  --client-key=/k8s/ssl/k8s/admin-key.pem   --embed-certs=true   --kubeconfig=/root/test.conf  && \
-          kubectl config set-context kubernetes-admin@kubernetes   --cluster=kubernetes   --user=kubernetes-admin --kubeconfig=/root/test.conf   && \
-          cp /root/test.conf   /root/.kube/config   
-
-
+#- name: 创建证书存放的位置
+#  file: dest=/k8s/ssl  state=directory
+#
+#- name: 拷贝证书到相对应目录
+#  copy: 
+#    src: /root/ansible-install-k8s-master/ssl/k8s
+#    dest: /k8s/ssl
+#- name: 制作config文件
+#  ignore_errors: yes
+#  shell: kubectl config set-cluster  kubernetes     --kubeconfig=/root/test.conf --embed-certs=true --certificate-authority=/opt/kubernetes/ssl/ca.pem   --server="https://{{ vip }}:6443" && \
+#         kubectl config  set-credentials kubernetes-admin      --client-certificate=/k8s/ssl/k8s/admin.pem  --client-key=/k8s/ssl/k8s/admin-key.pem   --embed-certs=true   --kubeconfig=/root/test.conf  && \
+#          kubectl config set-context kubernetes-admin@kubernetes   --cluster=kubernetes   --user=kubernetes-admin --kubeconfig=/root/test.conf   && \
+#          cp /root/test.conf   /root/.kube/config   
+#
