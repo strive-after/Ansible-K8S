@@ -13,7 +13,7 @@
 - name: 关闭swap
   lineinfile:
     dest: /etc/fstab
-    regexp: "UUID.*swap"
+    regexp: "^.*swap"
     line: ""
 
 - name: 即时生效
