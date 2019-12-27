@@ -1,7 +1,6 @@
 [Unit]
 Description=Kubernetes Kubelet
 After=docker.service
-Before=docker.service
 
 [Service]
 EnvironmentFile={{ k8s_work_dir }}/cfg/kubelet.conf
