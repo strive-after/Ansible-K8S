@@ -7,7 +7,7 @@
 - name: 制作config文件
   ignore_errors: yes
   shell: kubectl config set-cluster  kubernetes     --kubeconfig=/root/test.conf --embed-certs=true --certificate-authority={{ k8s_work_dir }}/ssl/ca.pem   --server="https://{{ masterip }}:6443" && \
-         kubectl config  set-credentials kubernetes-admin      --client-certificate=/root/Ansible-K8S/ssl/k8s/admin.pem  --client-key=/root/Ansible-K8S-master/ssl/k8s/admin-key.pem   --embed-certs=true   --kubeconfig=/root/test.conf  && \
+         kubectl config  set-credentials kubernetes-admin      --client-certificate=/root/Ansible-K8S/ssl/k8s/admin.pem  --client-key=/root/Ansible-K8S/ssl/k8s/admin-key.pem   --embed-certs=true   --kubeconfig=/root/test.conf  && \
           kubectl config set-context kubernetes-admin@kubernetes   --cluster=kubernetes   --user=kubernetes-admin --kubeconfig=/root/test.conf   && \
           cp /root/test.conf   /root/.kube/config   
 
